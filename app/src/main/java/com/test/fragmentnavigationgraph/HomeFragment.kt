@@ -24,12 +24,10 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         binding.btnAction.setOnClickListener {
-            if (!TextUtils.isEmpty(binding.editTextTextPersonName.text.toString())){
-            val bundle = bundleOf("user_input" to binding.editTextTextPersonName.text.toString())
-            it.findNavController().navigate(R.id.action_homeFragment_to_secondFragment, bundle)}
-            else{
-                Toast.makeText(requireContext(), "Please insert your name", Toast.LENGTH_LONG).show()
-            }
+            it.findNavController().navigate(R.id.action_homeFragment_to_secondFragment)}
+
+        binding.btnSignUp.setOnClickListener {
+            it.findNavController().navigate(R.id.action_homeFragment_to_nameFragment)
         }
 
         return binding.root
